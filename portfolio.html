@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Emmanuel</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: #001f4d;
+        }
+
+        header {
+            background: #0b0b0b;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu li {
+            margin: 0 15px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .portfolio-container {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 40px;
+        }
+
+        .certificates {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .certificate {
+            text-align: center;
+        }
+
+        .certificate img {
+            width: 200px; /* Slightly larger thumbnail size */
+            height: 200px; /* Slightly larger thumbnail size */
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .certificate img:hover {
+            transform: translateY(-5px);
+        }
+
+        .hidden-images {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .hidden-images img {
+            width: 300px; /* Slightly larger hidden image size */
+            height: 300px; /* Slightly larger hidden image size */
+            object-fit: contain;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .hidden-images img:hover {
+            transform: scale(1.05);
+        }
+
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .fullscreen img {
+            max-width: 95%; /* Slightly larger max width */
+            max-height: 95%; /* Slightly larger max height */
+            border-radius: 8px;
+        }
+
+        .fullscreen button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .fullscreen button.nav-button {
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 10000;
+            position: absolute;
+        }
+
+        .nav-button.left {
+            left: 5%;
+        }
+
+        .nav-button.right {
+            right: 5%;
+        }
+
+        .data-analytics-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .data-analytics-container h3 {
+            margin-bottom: 50px; /* Added margin below "Trainings" */
+        }
+
+        .data-analytics-container .trainings-images { /* Container for the training images */
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between the training images */
+            flex-wrap: wrap;
+            margin-top: 20px; /* Added margin above the images */
+        }
+
+        .data-analytics-container .trainings-images img {
+            width: 250px; /* Adjust as needed */
+            height: auto;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            margin-bottom: 10px; /* Optional: space below each image */
+        }
+
+        .data-analytics-container .trainings-images img:hover {
+            transform: scale(1.05);
+        }
+
+         .front-back-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .front-back-container h3 {
+            margin-bottom: 50px; /* Added margin below "Trainings" */
+        }
+
+        .front-back-container .trainings-images { /* Container for the training images */
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between the training images */
+            flex-wrap: wrap;
+            margin-top: 20px; /* Added margin above the images */
+        }
+
+        .front-back-container .trainings-images img {
+            width: 250px; /* Adjust as needed */
+            height: auto;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            margin-bottom: 10px; /* Optional: space below each image */
+        }
+
+        .front-back-container .trainings-images img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="portfolio-container">
+    <h2 class="section-title">Bookkeeping Section</h2>
+    <div class="certificates">
+        <div class="certificate">
+            <h3>XERRO</h3>
+            <h4>click the social-icons</h4>
+            <img src="xero logo.jpg" alt="XERO Certification" onclick="toggleImages('xero')">
+            <div id="xero" class="hidden-images">
+                <img src="xero.png" alt="XERO Image 1" onclick="openFullscreen(this)">
+                <img src="xero2.png" alt="XERO Image 2" onclick="openFullscreen(this)">
+                <img src="xero3.png" alt="XERO Image 2" onclick="openFullscreen(this)">
+            </div>
+        </div>
+
+        <div class="certificate">
+            <h3>INTUIT</h3>
+            <h4>click the social-icons</h4>
+            <img src="qbo logo.png" alt="INTUIT Certification" onclick="toggleImages('INTUIT')">
+            <div id="INTUIT" class="hidden-images">
+                <img src="qbo certificates.png" alt="qbo certificates" onclick="openFullscreen(this)">
+                <img src="qbo2.png" alt="qbo certificates" onclick="openFullscreen(this)">
+                <img src="qbo3.png" alt="qbo certificates" onclick="openFullscreen(this)">
+                <img src="qbo4.png" alt="qbo certificates" onclick="openFullscreen(this)">
+            </div>
+        </div>
+
+        <div class="certificate">
+            <h3>TESDA</h3>
+            <h4>click the social-icons</h4>
+            <img src="tesda logo.png" alt="TESDA Certification NCII" onclick="toggleImages('tesda')">
+            <div id="tesda" class="hidden-images">
+                <img src="tesda1.png" alt="TESDA Image 1" onclick="openFullscreen(this)">
+                <img src="tesda2.png" alt="TESDA Image 2" onclick="openFullscreen(this)">
+                <img src="tesda3.png" alt="TESDA Image 3" onclick="openFullscreen(this)">
+                <img src="tesda4.png" alt="TESDA Image 4" onclick="openFullscreen(this)">
+                <img src="tesda5.png" alt="TESDA Image 5" onclick="openFullscreen(this)">
+                <img src="tesda6.png" alt="TESDA Image 6" onclick="openFullscreen(this)">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-container data-analytics-container">
+    <h2 class="section-title">Data Analytics Section</h2>
+    <h3>Trainings</h3>
+    <div class="trainings-images">
+        <img src="data1.png" alt="Data Analytics Training Certificate" onclick="openFullscreen(this)">
+        <img src="data2.png" alt="Data Analytics Training Certificate" onclick="openFullscreen(this)">
+        <img src="data3.png" alt="Data Analytics Training Certificate" onclick="openFullscreen(this)">
+        <img src="data4.png" alt="Data Analytics Training Certificate" onclick="openFullscreen(this)">
+        <img src="data5.png" alt="Data Analytics Training Certificate" onclick="openFullscreen(this)">
+        <img src="data6.png" alt="Data Analytics Training Certificate" onclick="openFullscreen(this)">
+        <img src="data7.png" alt="Data Analytics Training Certificate" onclick="openFullscreen(this)">
+        <img src="data8.JPG" alt="Data Analytics Training Certificate" onclick="openFullscreen(this)">
+        <img src="data9.JPG" alt="Data Analytics Training Certificate" onclick="openFullscreen(this)">
+    </div>
+</div>
+<div class="portfolio-container front-back-container">
+    <h2 class="section-title">Front-End & Back-End Section</h2>
+    <h3>Trainings</h3>
+    <div class="trainings-images">
+        <img src="front 1.png" alt="Data Analytics Training Certificate" onclick="openFullscreen(this)">
+        <img src="front 2.jpg" alt="Data Analytics Training Certificate" onclick="openFullscreen(this)">
+        <img src="back1.jpg" alt="Data Analytics Training Certificate" onclick="openFullscreen(this)">
+
+</div>
+
+<script>
+    let currentImageIndex = 0;
+    let currentImages = [];
+
+    function toggleImages(id) {
+        const images = document.getElementById(id);
+        images.style.display = (images.style.display === 'none' || images.style.display === '') ? 'block' : 'none';
+    }
+
+    function openFullscreen(img) {
+        currentImages = Array.from(img.parentElement.querySelectorAll('img'));
+        currentImageIndex = currentImages.indexOf(img);
+
+        const fullscreenDiv = document.createElement('div');
+        fullscreenDiv.classList.add('fullscreen');
+        fullscreenDiv.innerHTML = `
+            <img src="${img.src}" alt="Fullscreen Image">
+            <button class="nav-button left" onclick="navigate(-1)">❮</button>
+            <button class="nav-button right" onclick="navigate(1)">❯</button>
+            <button onclick="closeFullscreen()">Close</button>`;
+        document.body.appendChild(fullscreenDiv);
+    }
+
+    function navigate(direction) {
+        currentImageIndex = (currentImageIndex + direction + currentImages.length) % currentImages.length;
+        const fullscreenImg = document.querySelector('.fullscreen img');
+        fullscreenImg.src = currentImages[currentImageIndex].src;
+    }
+
+    function closeFullscreen() {
+        const fullscreenDiv = document.querySelector('.fullscreen');
+        if (fullscreenDiv) {
+            fullscreenDiv.remove();
+        }
+    }
+</script>
+
+</body>
+</html>
